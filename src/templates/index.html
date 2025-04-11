@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Generator</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Recipe Generator AI</h1>
+        <p>Enter ingredients or a dish name to generate a personalized recipe</p>
+        
+        <div class="preferences">
+            <h3>Dietary Preferences</h3>
+            <div class="preference-options">
+                <label><input type="checkbox" id="vegetarian"> Vegetarian</label>
+                <label><input type="checkbox" id="vegan"> Vegan</label>
+                <label><input type="checkbox" id="gluten-free"> Gluten-Free</label>
+                <label><input type="checkbox" id="low-carb"> Low Carb</label>
+            </div>
+            
+            <h3>Cooking Time</h3>
+            <select id="cooking-time">
+                <option value="any">Any</option>
+                <option value="quick">Quick (< 30 min)</option>
+                <option value="medium">Medium (30-60 min)</option>
+                <option value="slow">Slow (> 60 min)</option>
+            </select>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="query" placeholder="e.g., chicken, pasta, vegetarian dinner">
+            <button onclick="generateRecipe()">Generate Recipe</button>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('recipe-result')">Current Recipe</button>
+            <button class="tab-button" onclick="showTab('saved-recipes')">Saved Recipes</button>
+            <button class="tab-button" onclick="showTab('recipe-history')">History</button>
+        </div>
+        
+        <div id="loading" class="loading">Generating your personalized recipe...</div>
+        
+        <div id="recipe-result" class="tab-content active"></div>
+        <div id="saved-recipes" class="tab-content">
+            <h2>Your Saved Recipes</h2>
+            <div id="saved-recipes-container"></div>
+        </div>
+        <div id="recipe-history" class="tab-content">
+            <h2>Recently Generated Recipes</h2>
+            <div id="history-container"></div>
+        </div>
+    </div>
+
+    <script src="../static/js/app.js"></script>
+</body>
+</html>
